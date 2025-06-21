@@ -56,7 +56,7 @@ const Download = () => {
         >
           {/* Windows Download */}
           <motion.a
-            href="https://github.com/Raghurajpratapsingh28/Environment--Manager/releases/download/desktop/Environment.Manager.exe"
+            href="https://github.com/Raghurajpratapsingh28/Environment--Manager/releases/download/desktop/win-unpacked.zip"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="group glass-card p-8 rounded-3xl hover:shadow-2xl transition-all duration-300 w-full max-w-sm"
