@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Star, User, CheckCircle, MessageSquare, Send, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, User, CheckCircle, MessageSquare, Send, ChevronLeft, ChevronRight, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -20,11 +20,22 @@ interface Review {
   createdAt: string;
 }
 
+interface FieldError {
+  field: string;
+  message: string;
+}
+
+interface ApiError {
+  error: string;
+  details?: FieldError[];
+}
+
 export default function Review() {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -60,17 +71,34 @@ export default function Review() {
       if (response.ok) {
         const data = await response.json();
         setReviews(data);
+      } else {
+        const errorData: ApiError = await response.json();
+        toast({
+          title: 'Error',
+          description: errorData.error || 'Failed to load reviews',
+          variant: 'destructive',
+        });
       }
     } catch (error) {
       console.error('Error fetching reviews:', error);
+      toast({
+        title: 'Error',
+        description: 'Failed to load reviews. Please check your connection and try again.',
+        variant: 'destructive',
+      });
     } finally {
       setLoading(false);
     }
   };
 
+  const clearFieldErrors = () => {
+    setFieldErrors({});
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
+    clearFieldErrors();
 
     try {
       console.log('Submitting form data:', formData);
@@ -100,21 +128,32 @@ export default function Review() {
           description: 'Thank you for your review.',
         });
       } else {
-        const errorData = await response.json();
+        const errorData: ApiError = await response.json();
         console.error('Error response:', errorData);
         
-        let errorMessage = 'Failed to submit review';
+        // Handle field-specific errors
         if (errorData.error === 'Validation error' && errorData.details) {
-          errorMessage = errorData.details.map((err: any) => `${err.field}: ${err.message}`).join(', ');
-        } else if (errorData.error) {
-          errorMessage = errorData.error;
+          const errors: Record<string, string> = {};
+          errorData.details.forEach((err: FieldError) => {
+            errors[err.field] = err.message;
+          });
+          setFieldErrors(errors);
+          
+          // Show toast with first error
+          const firstError = errorData.details[0];
+          toast({
+            title: 'Validation Error',
+            description: `${firstError.field}: ${firstError.message}`,
+            variant: 'destructive',
+          });
+        } else {
+          // Handle general errors
+          toast({
+            title: 'Error',
+            description: errorData.error || 'Failed to submit review',
+            variant: 'destructive',
+          });
         }
-        
-        toast({
-          title: 'Error',
-          description: errorMessage,
-          variant: 'destructive',
-        });
       }
     } catch (error) {
       console.error('Network error:', error);
@@ -162,6 +201,14 @@ export default function Review() {
     if (currentIndex < reviews.length - 1) {
       scrollToReview(currentIndex + 1);
     }
+  };
+
+  const getFieldError = (fieldName: string) => {
+    return fieldErrors[fieldName];
+  };
+
+  const hasFieldError = (fieldName: string) => {
+    return !!fieldErrors[fieldName];
   };
 
   return (
@@ -316,10 +363,21 @@ export default function Review() {
                   <Input
                     type="text"
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) => {
+                      setFormData({ ...formData, name: e.target.value });
+                      if (hasFieldError('name')) clearFieldErrors();
+                    }}
                     required
-                    className="glass bg-white/5 border-white/20 text-white placeholder:text-white/50 focus:border-white/40"
+                    className={`glass bg-white/5 border-white/20 text-white placeholder:text-white/50 focus:border-white/40 ${
+                      hasFieldError('name') ? 'border-red-400 focus:border-red-400' : ''
+                    }`}
                   />
+                  {hasFieldError('name') && (
+                    <div className="flex items-center gap-2 mt-2 text-red-400 text-sm">
+                      <AlertCircle className="w-4 h-4" />
+                      <span>{getFieldError('name')}</span>
+                    </div>
+                  )}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-white/80 mb-2">
@@ -328,10 +386,21 @@ export default function Review() {
                   <Input
                     type="email"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) => {
+                      setFormData({ ...formData, email: e.target.value });
+                      if (hasFieldError('email')) clearFieldErrors();
+                    }}
                     required
-                    className="glass bg-white/5 border-white/20 text-white placeholder:text-white/50 focus:border-white/40"
+                    className={`glass bg-white/5 border-white/20 text-white placeholder:text-white/50 focus:border-white/40 ${
+                      hasFieldError('email') ? 'border-red-400 focus:border-red-400' : ''
+                    }`}
                   />
+                  {hasFieldError('email') && (
+                    <div className="flex items-center gap-2 mt-2 text-red-400 text-sm">
+                      <AlertCircle className="w-4 h-4" />
+                      <span>{getFieldError('email')}</span>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -366,10 +435,21 @@ export default function Review() {
                 <Input
                   type="text"
                   value={formData.title}
-                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                  onChange={(e) => {
+                    setFormData({ ...formData, title: e.target.value });
+                    if (hasFieldError('title')) clearFieldErrors();
+                  }}
                   required
-                  className="glass bg-white/5 border-white/20 text-white placeholder:text-white/50 focus:border-white/40"
+                  className={`glass bg-white/5 border-white/20 text-white placeholder:text-white/50 focus:border-white/40 ${
+                    hasFieldError('title') ? 'border-red-400 focus:border-red-400' : ''
+                  }`}
                 />
+                {hasFieldError('title') && (
+                  <div className="flex items-center gap-2 mt-2 text-red-400 text-sm">
+                    <AlertCircle className="w-4 h-4" />
+                    <span>{getFieldError('title')}</span>
+                  </div>
+                )}
               </div>
 
               <div>
@@ -378,11 +458,22 @@ export default function Review() {
                 </label>
                 <Textarea
                   value={formData.content}
-                  onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+                  onChange={(e) => {
+                    setFormData({ ...formData, content: e.target.value });
+                    if (hasFieldError('content')) clearFieldErrors();
+                  }}
                   rows={4}
                   required
-                  className="glass bg-white/5 border-white/20 text-white placeholder:text-white/50 focus:border-white/40 resize-none"
+                  className={`glass bg-white/5 border-white/20 text-white placeholder:text-white/50 focus:border-white/40 resize-none ${
+                    hasFieldError('content') ? 'border-red-400 focus:border-red-400' : ''
+                  }`}
                 />
+                {hasFieldError('content') && (
+                  <div className="flex items-center gap-2 mt-2 text-red-400 text-sm">
+                    <AlertCircle className="w-4 h-4" />
+                    <span>{getFieldError('content')}</span>
+                  </div>
+                )}
               </div>
 
               <Button
