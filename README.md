@@ -31,8 +31,8 @@ A modern, responsive website showcasing Environment Manager - a cross-platform d
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/Environment Manager-website.git
-cd Environment Manager-website
+git clone https://github.com/raghurajpratapsingh28/environment-manager-website.git
+cd environment-manager-website
 ```
 
 2. Install dependencies:
@@ -94,8 +94,8 @@ Replace the placeholder GitHub release URLs in `components/Download.tsx`:
 
 ```typescript
 // Update these URLs with your actual GitHub release links
-const windowsUrl = "https://github.com/your-username/your-repo/releases/download/v1.0.0/Environment Manager.exe";
-const macosUrl = "https://github.com/your-username/your-repo/releases/download/v1.0.0/Environment Manager.dmg";
+const windowsUrl = "https://github.com/Raghurajpratapsingh28/Environment--Manager/releases/download/desktop/Environment.Manager.exe";
+const macosUrl = "https://github.com/Raghurajpratapsingh28/Environment--Manager/releases/download/desktop/Environment.Manager-1.0.0-arm64.dmg";
 ```
 
 ### Replace Placeholder Images
