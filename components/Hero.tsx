@@ -23,14 +23,14 @@ const Hero = () => {
               className="text-5xl lg:text-7xl font-bold text-white mb-6"
             >
               Master Your{' '}
-              <span className="text-gradient">Environment Variables</span>
+              <span className="text-gradient-high-contrast">Environment Variables</span>
             </motion.h1>
             
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-xl lg:text-2xl text-white/80 mb-8 leading-relaxed"
+              className="text-xl lg:text-2xl text-white-80-better mb-8 leading-relaxed"
             >
               Simple. Secure. Cross-Platform.
             </motion.p>
@@ -39,7 +39,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-lg text-white/70 mb-12 max-w-2xl"
+              className="text-lg text-white-70-better mb-12 max-w-2xl"
             >
               Environment Manager is a powerful desktop application that helps developers manage environment variables effortlessly. 
               Built with Electron.js for seamless cross-platform compatibility.
@@ -96,7 +96,7 @@ const Hero = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="relative"
           >
-            <div className="glass-card p-8">
+            <div className="glass-card-enhanced p-8">
               <Image
                 src="/screenshot.png"
                 alt="Environment Manager Application Screenshot"
@@ -111,22 +111,22 @@ const Hero = () => {
             <motion.div
               animate={{ y: [-10, 10, -10] }}
               transition={{ duration: 3, repeat: Infinity }}
-              className="absolute -top-4 -right-4 glass-card p-4 rounded-2xl"
+              className="absolute -top-4 -right-4 glass-card-enhanced p-4 rounded-2xl"
             >
-              <div className="text-white text-center">
+              <div className="text-white-better text-center">
                 <div className="text-2xl font-bold">500+</div>
-                <div className="text-sm opacity-70">Variables Managed</div>
+                <div className="text-sm text-white-70-better">Variables Managed</div>
               </div>
             </motion.div>
             
             <motion.div
               animate={{ y: [10, -10, 10] }}
               transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
-              className="absolute -bottom-4 -left-4 glass-card p-4 rounded-2xl"
+              className="absolute -bottom-4 -left-4 glass-card-enhanced p-4 rounded-2xl"
             >
-              <div className="text-white text-center">
+              <div className="text-white-better text-center">
                 <div className="text-2xl font-bold">100%</div>
-                <div className="text-sm opacity-70">Secure Storage</div>
+                <div className="text-sm text-white-70-better">Secure Storage</div>
               </div>
             </motion.div>
           </motion.div>

@@ -43,7 +43,7 @@ const Footer = () => {
               <Settings className="h-8 w-8 text-white" />
               <span className="text-2xl font-bold text-white">Environment Manager</span>
             </Link>
-            <p className="text-white/70 leading-relaxed mb-6">
+            <p className="text-white-70-better leading-relaxed mb-6">
               The ultimate desktop application for managing environment variables. 
               Simple, secure, and cross-platform.
             </p>
@@ -76,7 +76,7 @@ const Footer = () => {
                         element.scrollIntoView({ behavior: 'smooth' });
                       }
                     }}
-                    className="text-white/70 hover:text-white transition-colors"
+                    className="text-white-70-better hover:text-white transition-colors"
                   >
                     {link.name}
                   </button>
@@ -88,7 +88,7 @@ const Footer = () => {
           {/* Newsletter/Updates */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-6">Stay Updated</h3>
-            <p className="text-white/70 mb-6">
+            <p className="text-white-70-better mb-6">
               Get notified about new releases and updates.
             </p>
             <a
@@ -111,7 +111,7 @@ const Footer = () => {
           className="pt-8 border-t border-white/10"
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-2 text-white/70">
+            <div className="flex items-center gap-2 text-white-70-better">
               <span>© {currentYear} Environment Manager. Made with</span>
               <Heart size={18} className="text-red-400 fill-current" />
               <span>by Raghuraj Pratap Singh</span>

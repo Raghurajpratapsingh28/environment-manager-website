@@ -222,10 +222,10 @@ export default function Review() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-            What Our <span className="text-gradient">Users Say</span>
+            What Our <span className="text-gradient-high-contrast">Users Say</span>
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-            Join thousands of satisfied developers who have transformed their environment management experience
+          <p className="text-xl text-white-70-better max-w-3xl mx-auto leading-relaxed">
+            Hear from developers who have transformed their workflow with Environment Manager
           </p>
         </motion.div>
 
@@ -240,13 +240,13 @@ export default function Review() {
           {loading ? (
             <div className="text-center py-12">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
-              <p className="text-white/70">Loading reviews...</p>
+              <p className="text-white-70-better">Loading reviews...</p>
             </div>
           ) : reviews.length === 0 ? (
             <div className="text-center py-12">
               <div className="glass-card p-8 rounded-3xl">
                 <MessageSquare className="w-16 h-16 text-white/50 mx-auto mb-4" />
-                <p className="text-white/70 text-lg">No reviews yet. Be the first to review!</p>
+                <p className="text-white-70-better text-lg">No reviews yet. Be the first to review!</p>
               </div>
             </div>
           ) : (
@@ -294,7 +294,7 @@ export default function Review() {
                       </div>
                       
                       <h5 className="font-semibold text-white text-lg mb-3">{review.title}</h5>
-                      <p className="text-white/70 leading-relaxed line-clamp-4">{review.content}</p>
+                      <p className="text-white-70-better leading-relaxed line-clamp-4">{review.content}</p>
                       
                       <div className="h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mt-4 opacity-0 hover:opacity-100 transition-opacity duration-300" />
                     </motion.div>
@@ -506,7 +506,7 @@ export default function Review() {
             <h3 className="text-2xl font-bold text-white mb-4">
               Join Our Community
             </h3>
-            <p className="text-white/70 leading-relaxed">
+            <p className="text-white-70-better leading-relaxed">
               Share your experience with Environment Manager and help other developers discover the best way to manage their environment variables. 
               Your feedback helps us improve and build better tools for the developer community.
             </p>

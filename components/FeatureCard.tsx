@@ -18,14 +18,14 @@ const FeatureCard = ({ icon: Icon, title, description, index }: FeatureCardProps
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true }}
       whileHover={{ scale: 1.05, y: -5 }}
-      className="glass-card p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 group"
+      className="glass-card-enhanced p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 group"
     >
       <div className="mb-6">
         <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
           <Icon className="w-8 h-8 text-white" />
         </div>
-        <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
-        <p className="text-white/70 leading-relaxed">{description}</p>
+        <h3 className="text-xl font-bold text-white-better mb-3">{title}</h3>
+        <p className="text-white-70-better leading-relaxed">{description}</p>
       </div>
       
       <div className="h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

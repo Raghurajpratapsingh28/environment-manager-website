@@ -21,9 +21,9 @@ const Download = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-            Get <span className="text-gradient">Environment Manager</span>
+            Get <span className="text-gradient-high-contrast">Environment Manager</span>
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-white-70-better max-w-3xl mx-auto leading-relaxed">
             Download Environment Manager today and start managing your environment variables like a pro. 
             Available for all major platforms.
           </p>
@@ -41,7 +41,7 @@ const Download = () => {
             <div key={stat.label} className="glass-card p-6 rounded-2xl text-center">
               <stat.icon className="w-12 h-12 text-blue-400 mx-auto mb-4" />
               <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
-              <div className="text-white/70">{stat.label}</div>
+              <div className="text-white-70-better">{stat.label}</div>
             </div>
           ))}
         </motion.div>
@@ -65,7 +65,7 @@ const Download = () => {
               <Monitor className="w-16 h-16 text-blue-400 group-hover:scale-110 transition-transform duration-300" />
             </div>
             <h3 className="text-2xl font-bold text-white mb-2">Windows</h3>
-            <p className="text-white/70 mb-6">Compatible with Windows 10 and 11</p>
+            <p className="text-white-70-better mb-6">Compatible with Windows 10 and 11</p>
             <div className="flex items-center justify-center gap-2 text-blue-400 font-semibold">
               <DownloadIcon size={20} />
               Download .exe
@@ -83,7 +83,7 @@ const Download = () => {
               <Apple className="w-16 h-16 text-blue-400 group-hover:scale-110 transition-transform duration-300" />
             </div>
             <h3 className="text-2xl font-bold text-white mb-2">macOS</h3>
-            <p className="text-white/70 mb-6">Compatible with macOS 10.14+</p>
+            <p className="text-white-70-better mb-6">Compatible with macOS 10.14+</p>
             <div className="flex items-center justify-center gap-2 text-blue-400 font-semibold">
               <DownloadIcon size={20} />
               Download .dmg
@@ -103,7 +103,7 @@ const Download = () => {
               <Github className="w-16 h-16 text-blue-400 group-hover:scale-110 transition-transform duration-300" />
             </div>
             <h3 className="text-2xl font-bold text-white mb-2">Source Code</h3>
-            <p className="text-white/70 mb-6">Download the source code in zip format</p>
+            <p className="text-white-70-better mb-6">Download the source code in zip format</p>
             <div className="flex items-center justify-center gap-2 text-blue-400 font-semibold">
               <Github size={20} />
               View Repository
@@ -124,7 +124,7 @@ const Download = () => {
             <div className="grid md:grid-cols-2 gap-8 text-left">
               <div>
                 <h4 className="text-lg font-semibold text-white mb-3">Windows</h4>
-                <ul className="text-white/70 space-y-1">
+                <ul className="text-white-70-better space-y-1">
                   <li>• Windows 10 or later</li>
                   <li>• 4GB RAM minimum</li>
                   <li>• 100MB free disk space</li>
@@ -132,7 +132,7 @@ const Download = () => {
               </div>
               <div>
                 <h4 className="text-lg font-semibold text-white mb-3">macOS</h4>
-                <ul className="text-white/70 space-y-1">
+                <ul className="text-white-70-better space-y-1">
                   <li>• macOS 10.14 or later</li>
                   <li>• 4GB RAM minimum</li>
                   <li>• 100MB free disk space</li>

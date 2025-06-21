@@ -39,9 +39,9 @@ const Features = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-            Powerful <span className="text-gradient">Features</span>
+            Powerful <span className="text-gradient-high-contrast">Features</span>
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-white-70-better max-w-3xl mx-auto leading-relaxed">
             Everything you need to manage environment variables efficiently and securely
           </p>
         </motion.div>
@@ -70,7 +70,7 @@ const Features = () => {
             <h3 className="text-2xl font-bold text-white mb-4">
               Built for Developers, by Developer
             </h3>
-            <p className="text-white/70 leading-relaxed">
+            <p className="text-white-70-better leading-relaxed">
               Environment Manager was created to solve the common problem of managing environment variables 
               across different projects and environments. With its clean interface and robust security, 
               it's the perfect tool for developers who want to stay organized and secure.

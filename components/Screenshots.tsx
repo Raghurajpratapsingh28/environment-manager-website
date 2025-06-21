@@ -15,9 +15,9 @@ const Screenshots = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-            See It In <span className="text-gradient">Action</span>
+            See It In <span className="text-gradient-high-contrast">Action</span>
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-white-70-better max-w-3xl mx-auto leading-relaxed">
             Explore the clean, intuitive interface that makes managing environment variables a breeze
           </p>
         </motion.div>
@@ -27,7 +27,7 @@ const Screenshots = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="glass-card p-8 rounded-3xl"
+          className="glass-card-enhanced p-8 rounded-3xl"
         >
           <ScreenshotCarousel />
         </motion.div>
@@ -41,16 +41,16 @@ const Screenshots = () => {
           className="mt-16 grid md:grid-cols-3 gap-8"
         >
           <div className="text-center">
-            <div className="text-3xl font-bold text-gradient mb-2">Clean UI</div>
-            <p className="text-white/70">Intuitive interface designed for productivity</p>
+            <div className="text-3xl font-bold text-gradient-high-contrast mb-2">Clean UI</div>
+            <p className="text-white-70-better">Intuitive interface designed for productivity</p>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-gradient mb-2">Fast Performance</div>
-            <p className="text-white/70">Lightning-fast operations with minimal resource usage</p>
+            <div className="text-3xl font-bold text-gradient-high-contrast mb-2">Fast Performance</div>
+            <p className="text-white-70-better">Lightning-fast operations with minimal resource usage</p>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-gradient mb-2">Smart Organization</div>
-            <p className="text-white/70">Intelligent categorization and search capabilities</p>
+            <div className="text-3xl font-bold text-gradient-high-contrast mb-2">Smart Organization</div>
+            <p className="text-white-70-better">Intelligent categorization and search capabilities</p>
           </div>
         </motion.div>
       </div>

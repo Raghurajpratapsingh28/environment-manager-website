@@ -20,7 +20,7 @@ export default function NotFound() {
             transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
             className="mb-8"
           >
-            <div className="text-8xl font-bold text-gradient mb-4">404</div>
+            <div className="text-8xl font-bold text-gradient-high-contrast mb-4">404</div>
             <h1 className="text-2xl font-semibold text-white mb-2">Page Not Found</h1>
             <p className="text-white/70 mb-8">
               Sorry, we couldn't find the page you're looking for.
