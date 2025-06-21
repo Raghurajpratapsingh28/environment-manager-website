@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   description: 'Download Environment Manager, a cross-platform desktop app to manage environment variables securely. Simple. Secure. Cross-Platform.',
   keywords: ['environment variables', 'desktop app', 'cross-platform', 'developer tools', 'electron'],
   authors: [{ name: 'Environment Manager Team' }],
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
   openGraph: {
     title: 'Environment Manager - Environment Variable Manager',
     description: 'Master your environment variables with Environment Manager. Simple. Secure. Cross-Platform.',
