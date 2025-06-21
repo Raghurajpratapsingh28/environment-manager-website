@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import Screenshots from '@/components/Screenshots';
+import Review from '@/components/Review';
 import Download from '@/components/Download';
 import Footer from '@/components/Footer';
 
@@ -15,8 +16,9 @@ export default function Home() {
       <main>
         <Hero />
         <Features />
-        <Screenshots />
+        <Screenshots />      
         <Download />
+        <Review />
       </main>
       <Footer />
     </div>
