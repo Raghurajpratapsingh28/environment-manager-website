@@ -133,9 +133,37 @@ The design system uses CSS custom properties and Tailwind classes. Main colors c
 
 ### Vercel (Recommended)
 
-1. Push your code to GitHub
-2. Connect your repository to [Vercel](https://vercel.com)
-3. Deploy with default settings
+1. **Push your code to GitHub**
+
+2. **Connect your repository to [Vercel](https://vercel.com)**
+
+3. **Set up Environment Variables in Vercel:**
+   - Go to your Vercel project settings
+   - Navigate to the "Environment Variables" section
+   - Add the following environment variable:
+     - **Name**: `DATABASE_URL`
+     - **Value**: Your PostgreSQL database URL (e.g., `postgresql://username:password@host:port/database?schema=public`)
+     - **Environment**: Production (and Preview if needed)
+
+4. **Deploy with default settings**
+   - Vercel will automatically detect the Next.js framework
+   - The build process will run `prisma generate` before building the application
+
+**Important Notes for Vercel Deployment:**
+- Make sure your PostgreSQL database is accessible from Vercel's servers
+- For production, consider using a managed database service like:
+  - [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres)
+  - [Supabase](https://supabase.com/)
+  - [Neon](https://neon.tech/)
+  - [Railway](https://railway.app/)
+
+5. **Database Setup:**
+   - After deployment, you may need to run database migrations
+   - You can do this by adding a build command or using Vercel's CLI:
+   ```bash
+   vercel env pull .env.local
+   npx prisma db push
+   ```
 
 ### Netlify
 
